@@ -24,7 +24,7 @@ function OptionSelection({itemKey, setOptionInObject}) {
     return(
         <div className="d-flex justify-content-start align-items-center mt-2 selection-item">
             <div className="option-label">
-            <b>{`${icon} ${title}`}</b>
+            <b><span role="img" aria-label="label-icon">${icon}</span>{` ${title}`}</b>
             </div>
             <div className="dropdown ml-4">
             <button className="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
