@@ -5,21 +5,32 @@ import TypingTextComponent from './components/TypingTextComponent';
 import axios from 'axios';
 
 function App() {
-  const [selectedObject, updateSelectedObject] = useState({})
-  const [modelPrediction, setModelPrediction] = useState(null)
+  const [selectedObject, updateSelectedObject] = useState({});
+  const [modelPrediction, setModelPrediction] = useState(null);
+  const [isPredictionLoading, setPredictionLoading] = useState(false);
+  const [isRequestFailed, setRequestFailed] = useState(null);
   const setOptionInObject = (itemKey, consoleOption) => {
     const tempSelectedObject = selectedObject;
     tempSelectedObject[itemKey] = consoleOption;
     updateSelectedObject(tempSelectedObject);
   }
   const handleInputSubmission = () => {
-    axios.post('https://video-game-sales-backend.herokuapp.com/get_prediction', selectedObject)
-    .then(function (response) {
-      setModelPrediction(response.data.result)
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
+    if(selectedObject && Object.keys(selectedObject).length === 7) {
+      setPredictionLoading(true)
+      setModelPrediction(null)
+      setRequestFailed(null)
+      axios.post('https://video-game-sales-backend.herokuapp.com/get_prediction', selectedObject)
+      .then(function (response) {
+        setPredictionLoading(false)
+        setModelPrediction(response.data.result)
+      })
+      .catch(function (error) {
+        setPredictionLoading(false)
+        setRequestFailed("Some error ocurred while fetching prediction")
+      });
+    } else {
+      setRequestFailed("Please select all fields before submitting request")
+    }
   }
   const dropDownKeys = ["CONSOLE","YEAR","CATEGORY","PUBLISHER","RATING","CRITICS_POINTS","USER_POINTS"];
   return (
@@ -38,12 +49,28 @@ function App() {
         </div>
         <div className="submit-button-container">
           <button className="btn btn-grad" onClick={() => handleInputSubmission()}>
-            Submit
+          {(() => {
+            if(isPredictionLoading) {
+              return(
+                <div class="spinner-border text-light" role="status">
+                  <span class="sr-only">Loading...</span>
+                </div>
+              )
+            } else {
+              return(
+                <span>Submit</span>
+              )  
+            }
+          })()}
           </button>
         </div>
         <div className="mt-4">
           {modelPrediction ? 
-          <span>Predicted Sales in Millions: {modelPrediction.toFixed(2)}</span> 
+          <span className="h2">Predicted Sales in Millions: {modelPrediction.toFixed(2)}</span> 
+          : 
+          null }
+          {isRequestFailed ? 
+          <span className="h4">{isRequestFailed}</span> 
           : 
           null }
         </div>
