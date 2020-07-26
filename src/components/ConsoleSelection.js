@@ -20,10 +20,11 @@ function OptionSelection({itemKey, setOptionInObject}) {
         })
     }
     const title = optionSources[itemKey].dropDownPlaceholder;
+    const icon = optionSources[itemKey].icon;
     return(
-        <div className="d-flex justify-content-center align-items-center mt-2">
-            <div>
-                <b>{title}</b>
+        <div className="d-flex justify-content-start align-items-center mt-2 selection-item">
+            <div className="option-label">
+            <b>{`${icon} ${title}`}</b>
             </div>
             <div className="dropdown ml-4">
             <button className="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

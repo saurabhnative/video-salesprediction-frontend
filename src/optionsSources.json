@@ -3,42 +3,49 @@
         "options": [
             "ps2","x360","ps3","pc"
         ],
+        "icon": "🕹",
         "dropDownPlaceholder": "Select Console"
     },
     "YEAR": {
         "options": [
             2000,2005,2010,2015,2020
         ],
+        "icon": "⏰",
         "dropDownPlaceholder": "Select Year"
     },
     "CATEGORY": {
         "options": [
             "action","sports","shooter","role-playing","racing"
         ],
+        "icon": "🎨",
         "dropDownPlaceholder": "Select category"
     },
     "PUBLISHER": {
         "options": [
             "Electronic Arts","Activision","Ubisoft","Nintendo"
         ],
+        "icon": "🎬",
         "dropDownPlaceholder": "Select publisher"
     },
     "RATING": {
         "options": [
             "T","E","M","E10+"
         ],
+        "icon": "🔢",
         "dropDownPlaceholder": "Select rating"
     },
     "CRITICS_POINTS": {
         "options": [
             1,5,10,15
         ],
+        "icon": "✍🏻",
         "dropDownPlaceholder": "Select critic points"
     },
     "USER_POINTS": {
         "options": [
             0.1,0.5,1.0,1.5
         ],
+        "icon": "🔏",
         "dropDownPlaceholder": "Select user points"
     }
 }

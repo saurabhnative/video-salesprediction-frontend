@@ -1,5 +1,15 @@
+body {
+  background-color: black;
+  color: white;
+}
 .App {
   text-align: center;
+  width: 100%;
+}
+
+.navbar {
+  background-color: #6b0f1a;
+  background-image: linear-gradient(315deg, #6b0f1a 0%, #b91372 74%);
 }
 
 .pointer {
@@ -8,5 +18,26 @@
 
 .container-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 3.5fr);
+  width: 70vw;
+}
+.selection-item {
+  height: 12vh;
+}
+
+.option-label {
+  text-align: left;
+  min-width: 152px;
+}
+.btn-grad {
+  background-color: #EB3349;
+  color: white;
+  width: 200px;
+  margin-top: 20px;
+}
+@media only screen and (max-width: 600px) {
+  .container-grid {
+    grid-template-columns: repeat(1, 1fr);
+    width: 90vw;
+  }
 }

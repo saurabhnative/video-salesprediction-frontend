@@ -1,7 +1,9 @@
 import React, {useState} from 'react';
 import './App.css';
 import ConsoleSelection from './components/ConsoleSelection';
+import TypingTextComponent from './components/TypingTextComponent';
 import axios from 'axios';
+
 function App() {
   const [selectedObject, updateSelectedObject] = useState({})
   const [modelPrediction, setModelPrediction] = useState(null)
@@ -22,10 +24,11 @@ function App() {
   const dropDownKeys = ["CONSOLE","YEAR","CATEGORY","PUBLISHER","RATING","CRITICS_POINTS","USER_POINTS"];
   return (
     <div className="App">
-      <header className="App-header">
-        <center><h3>Video games sales prediction</h3></center>
-      </header>
-      <div className="container">
+      <nav className="navbar navbar-dark justify-content-center">
+        <center><h3>👾 Video games sales prediction</h3></center>
+      </nav>
+      <TypingTextComponent />
+      <div className="container d-flex justify-content-center align-items-center flex-column">
         <div className="container-grid">
         {
           dropDownKeys.map((item,index)=>{
@@ -34,7 +37,7 @@ function App() {
         }
         </div>
         <div className="submit-button-container">
-          <button className="btn btn-primary" onClick={() => handleInputSubmission()}>
+          <button className="btn btn-grad" onClick={() => handleInputSubmission()}>
             Submit
           </button>
         </div>
