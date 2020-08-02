@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import './App.css';
-import ConsoleSelection from './components/ConsoleSelection';
+import OptionSelection from './components/OptionSelection';
 import TypingTextComponent from './components/TypingTextComponent';
 import axios from 'axios';
 
@@ -43,7 +43,7 @@ function App() {
         <div className="container-grid">
         {
           dropDownKeys.map((item,index)=>{
-            return <ConsoleSelection itemKey={item} setOptionInObject={setOptionInObject} key={index}/> 
+            return <OptionSelection itemKey={item} setOptionInObject={setOptionInObject} key={index}/> 
           })
         }
         </div>

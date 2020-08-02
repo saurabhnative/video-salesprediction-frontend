@@ -1,3 +1,7 @@
+/**
+ * This component implements the dropdown item
+ * found in final web app
+ */
 import React,{ useState } from 'react';
 import optionSources from  '../optionsSources.json';
 function OptionSelection({itemKey, setOptionInObject}) {
@@ -6,15 +10,15 @@ function OptionSelection({itemKey, setOptionInObject}) {
         setSelectedOption(consoleOption)
         setOptionInObject(itemKey, consoleOption)
     }
-    const renderConsoleOptions = () => {
-        const consoleSelectionOptions = optionSources[itemKey].options;
-        return consoleSelectionOptions.map((consoleOption, index)=>{
+    const renderOptionsDropdown = () => {
+        const selectionOptions = optionSources[itemKey].options;
+        return selectionOptions.map((selectionOption, index)=>{
             return (
                 <div className="dropdown-item pointer" 
-                     key={`${index}${consoleOption}`} 
-                     onClick={() => handleDropDownSelection(consoleOption)}
+                     key={`${index}${selectionOption}`} 
+                     onClick={() => handleDropDownSelection(selectionOption)}
                 >
-                    {consoleOption}
+                    {selectionOption}
                 </div>
             );
         })
@@ -24,14 +28,14 @@ function OptionSelection({itemKey, setOptionInObject}) {
     return(
         <div className="d-flex justify-content-start align-items-center mt-2 selection-item">
             <div className="option-label">
-            <b><span role="img" aria-label="label-icon">${icon}</span>{` ${title}`}</b>
+            <b><span role="img" aria-label="label-icon">{icon}</span>{` ${title}`}</b>
             </div>
             <div className="dropdown ml-4">
             <button className="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 {currentSelectedOption ? currentSelectedOption : title}
             </button>
             <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                {renderConsoleOptions()}
+                {renderOptionsDropdown()}
             </div>
             </div>
         </div>
