@@ -23,11 +23,12 @@ body {
 }
 .selection-item {
   height: 12vh;
+  padding: 0% 20%;
 }
 
 .option-label {
   text-align: left;
-  min-width: 152px;
+  min-width: 160px;
 }
 .btn-grad {
   background-color: #EB3349;
@@ -44,5 +45,12 @@ body {
   .container-grid {
     grid-template-columns: repeat(1, 1fr);
     width: 90vw;
+  }
+  .selection-item {
+    height: 12vh;
+    padding: 0% 1%;
+  }
+  .title {
+    font-size: 1.5rem;
   }
 }

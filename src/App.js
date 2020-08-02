@@ -36,7 +36,7 @@ function App() {
   return (
     <div className="App">
       <nav className="navbar navbar-dark justify-content-center">
-        <center><h3><span role="img" aria-label="game">👾</span> Video games sales prediction</h3></center>
+        <center><h3 className="title"><span role="img" aria-label="game">👾</span> Video games sales prediction</h3></center>
       </nav>
       <TypingTextComponent />
       <div className="container d-flex justify-content-center align-items-center flex-column">
