@@ -33,8 +33,6 @@ function App() {
     }
   }
   const dropDownKeys = ["CONSOLE","YEAR","CATEGORY","PUBLISHER","RATING","CRITICS_POINTS","USER_POINTS"];
-  console.log(process.env);
-  
   return (
     <div className="App">
       <nav className="navbar navbar-dark justify-content-center">
