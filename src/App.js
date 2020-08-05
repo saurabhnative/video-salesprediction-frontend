@@ -19,7 +19,7 @@ function App() {
       setPredictionLoading(true)
       setModelPrediction(null)
       setRequestFailed(null)
-      axios.post('https://video-game-sales-backend.herokuapp.com/get_prediction', selectedObject)
+      axios.post(process.env.REACT_APP_HEROKU_SERVER_URL, selectedObject)
       .then(function (response) {
         setPredictionLoading(false)
         setModelPrediction(response.data.result)
@@ -33,6 +33,8 @@ function App() {
     }
   }
   const dropDownKeys = ["CONSOLE","YEAR","CATEGORY","PUBLISHER","RATING","CRITICS_POINTS","USER_POINTS"];
+  console.log(process.env);
+  
   return (
     <div className="App">
       <nav className="navbar navbar-dark justify-content-center">
@@ -52,8 +54,8 @@ function App() {
           {(() => {
             if(isPredictionLoading) {
               return(
-                <div class="spinner-border text-light" role="status">
-                  <span class="sr-only">Loading...</span>
+                <div className="spinner-border text-light" role="status">
+                  <span className="sr-only">Loading...</span>
                 </div>
               )
             } else {
